@@ -6,8 +6,7 @@ var rp = require('request-promise');
 var addressResolver = require('./../helpers/addressResolver');
 
 function search(req, res) {
-
-    getAddress(req.params.lat, req.params.long);
+    getAddress(req.query.lat, req.query.long, res);
 
     
 }
@@ -29,11 +28,13 @@ function findRules(){
    });
 }
 
-function getAddress(lat, long){
+function getAddress(lat, long, res){
     addressResolver.resolve(lat, long).then(function(response){
+        //res.send(response);
         //findRules()
     }).catch(function(error){
-        console.log('error resolving address');
+        //res.send(error);
+       //console.log('error resolving address', error);
     });
 }
 
