@@ -13,8 +13,8 @@ export class CoordService {
   sendCoords(lat: number, long: number)
   {
 		// Testing Data //
-		lat = 39.2773571;
-		long = -76.6114423;
+		//lat = 39.2773571;
+		//long = -76.6114423;
   	return new Promise(resolve => {
   		console.log("Sending Coordinates to server: " + lat.toString() + " , " + long.toString());
 

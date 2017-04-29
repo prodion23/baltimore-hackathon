@@ -1,41 +1,54 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Parking Assist
+      ParkIt
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <button (click)="getLocation()" id="parkButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+
+
+    <p style="font-size:2vh;"> <span style="font-size:3vh; font-weight:bold;">ParkIt</span>, is a android app designed to quickly answer the question: "Can I park here?" </p> <br/>
+
+  <button (click)="getLocation()" id="parkButton" style="width:100%; margin:auto;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
   Can I Park Here?
 </button>
 
+  <div *ngIf="noResult == true">
+      <button class="mdl-button mdl-js-button mdl-button--primary ResultBtn">
+      NO AVAILABLE DATA
+      </button>
+    </div>
 
-  <div id="mapContainer">
+
     <div id="map" style="height: 400px; width: 100%;"></div>
-  </div>
-
+    
+  <div class="appContainer">
 
   <div id="rulesContainer">
 
     <div *ngIf="canPark == true">
-      <button class="mdl-button mdl-js-button mdl-button--primary">
+      <button class="mdl-button mdl-js-button greenTxt ResultBtn">
       YES
      </button>
     </div>
 
     <div *ngIf="canPark == false">
-      <button class="mdl-button mdl-js-button mdl-button--primary">
+      <button class="mdl-button mdl-js-button redTxt ResultBtn">
       NO
       </button>
     </div>
+
 
   </div>
 
   <!-- Restrictions -->
 
+  <div id="restrictContainer">
+
   <div *ngIf="restrictions.length > 0">
+    <p>Restrictions</p>
     <div *ngFor="let rest of restrictions">
       <span class="mdl-chip mdl-chip--contact">
     <span class="mdl-chip__contact mdl-color-text--white"><ion-icon name="close" style="color:red;"></ion-icon></span>
@@ -46,10 +59,15 @@
 
 
   <div *ngIf="exceptions != ''">
+    <hr/>
+    <p>Exceptions</p>
     <span class="mdl-chip mdl-chip--contact">
     <span class="mdl-chip__contact mdl-color-text--white"><ion-icon name="checkmark" style="color:green;"></ion-icon></span>
     <span class="mdl-chip__text">{{exceptions}}</span>
     </span>
   </div>
+  
+  </div>
 
+</div> <!---End of appContainer -->
 </ion-content>
