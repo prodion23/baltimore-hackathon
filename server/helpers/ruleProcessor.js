@@ -63,10 +63,9 @@ function ruleCheck(data) {
                 return { valid: true, restraints: ['2 hour parking', 'Tow away during stadium events.', 'No parking 6:00PM to 7:00AM'], unless: 'Area #9 Permit' }
             } else if (isDayAllowed([0]) && isTimeAllowed(7.00, 14.00)) {
                 return { valid: true, restraints: ['2 hour parking', 'Tow away during stadium events.', 'No parking 2:00PM to 7:00AM'], unless: 'Area #9 Permit' }
-            } else {
-                return { valid: false, unless: 'Area #9 Permit' }
             }
-            break;
+            //return { valid: false, unless: 'Area #9 Permit' }
+            return { valid: true, restraints: ['2 hour parking', 'Tow away during stadium events.', 'No parking 6:00PM to 7:00AM'], unless: 'Area #9 Permit' }
         case "\"No Parking 5 p.m to 10 p.m Monday - Friday , 8a.m to 10 p.m Saturday and Sunday except with Area #44 Permit\"":
             if (isDayAllowed([1, 2, 3, 4, 5]) && isTimeAllowed(8.00, 22.00)) {
                 return { valid: false, restraints: ['No parking 5:00pm to 10pm Monday - Friday'], unless: 'Area #44 permit' }
@@ -268,8 +267,6 @@ function ruleCheck(data) {
         case "Stadium Event Restricted Parking/1 Hour Parking Limit, 3:00pm - 10:00pm, Monday through Friday, / Saturday and Sunday 1:00pm - 12 Midnight, Area B except permit holders / tow away zone":
 
         case "\"Two Hour Parking, Limit in Area #30 7am - 6pm Monday thru Saturday/7am - 2 pm Sunday except with Area #30/No Parking in Area #30 6pm-7am Monday thru Sunday Morning/2pm-7am Sunday thru Monday Morning Except with Area #30 permit Tow away Zone During Stadium Event.\"":
-
-        case "\"Two Hour Parking, in Area #9/Monday thru Saturday 7:00 a.m. - 6:00 p.m./Sunday 7:00 a.m. - 2:00 p.m./except with Area #9/No Parking in Area #9 Monday thru Sunday morning 6pm-7am/Sunday thru Monday morning 2pm-7am/Except with Area 9 permit/Tow away Zone During Stadium Events/Tow away Zone, except with Area #9 permit.\"":
 
         case "\"Two Hour Parking, 7:00 a.m. - 12 Midnight, Except with Area #5 Permit./Notice Stadium Event: Reserved Parking, 1 Hour Parking Limit, 3:00 p.m. - 10:00 p.m./Monday through Friday, 1:00 p.m. - 12 Midnight, Saturday and Sunday, Except Area #5 Permit Holders.  Tow away Zone.\"":
 
