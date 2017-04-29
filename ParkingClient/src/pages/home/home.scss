@@ -1,7 +1,30 @@
 page-home {
 
-	#parkButton {
-		margin: auto;
+	.appContainer {
+		display: flex;
+		align-content: center;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
 	}
 
+	.ResultBtn {
+		font-size: 4vh;
+		padding: 10%;
+		height: 100%;
+	}
+
+
+	#restrictContainer {
+		align-content: left;
+		align-items: left;
+	}
+
+	.greenTxt {
+		color: green;
+	}
+
+	.redTxt {
+		color: red;
+	}
 }
