@@ -10,12 +10,11 @@ function resolve(lat, long) {
         headers: {
             'User-Agent': 'request'
         },
-        params: {
-            'latlng': 5,
+        qs: {
+            'latlng': lat+","+long,
             'key': token
         }
     };
-
    return rp(options);
 }
 
