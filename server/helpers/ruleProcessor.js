@@ -83,6 +83,16 @@ function ruleCheck(data) {
                 return { valid: true };
             }
             break;
+        case "\"Two Hour Parking, 7:00 a.m. - 7:00 p.m., Monday through Friday, except with Area #2 Permit.\"":
+            if(isDayAllowed([1,2,3,4,5]) && isTimeAllowed(7.00, 19.00)){
+                return {valid: true, restraints: ['Two hour parking'], unless: 'Area #2 Permit'}
+            }else{
+                return {valid: true}
+            }
+            break;
+        case "\"Two Hour Parking, 7:00 a.m. - 12 Midnight, Monday through Friday, except with Area #3 Permit.\"":
+            if(isDayAllowed([1,2,3,4,5]) && )
+
     }
     return ruleString;
 }
