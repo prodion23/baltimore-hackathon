@@ -7,12 +7,13 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HttpModule } from '@angular/http';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
-
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { Result } from '../pages/result/result';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    Result
   ],
   imports: [
     BrowserModule,
@@ -22,12 +23,14 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    Result
   ],
   providers: [
     StatusBar,
     SplashScreen,
     Geolocation,
+    GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

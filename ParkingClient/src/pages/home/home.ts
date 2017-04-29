@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CoordService } from '../../providers/coord-service';
+import { Result } from '../result/result';
+
+declare var google;
 
 @Component({
   selector: 'page-home',
@@ -10,29 +13,67 @@ import { CoordService } from '../../providers/coord-service';
 })
 export class HomePage {
 
+  private lat : number;
+  private long : number;
+  map : any;
   constructor(public navCtrl: NavController, private geolocation: Geolocation, private xyz : CoordService) {
 
 
   }
 
+  setupAnswerPage(data : any)
+  {
+    console.log("Setting up Answer Page...");
+    console.log(data);
 
+    this.displayMap();
+
+  }
+
+  displayMap()
+  {
+    let location = new google.maps.LatLng(this.lat,this.long);
+    let options = {
+    center: location,
+    zoom: 15,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  let element: HTMLElement = document.getElementById('map');
+
+  //console.log(element);
+  this.map = new google.maps.Map(element, options);
+    var marker = new google.maps.Marker({
+          position: location,
+          map: this.map
+        });
+  //console.log(this.map);
+  }
 
   getLocation() {
 	if (navigator.geolocation) {
       var options = {
         enableHighAccuracy: true
       };
-
-      navigator.geolocation.getCurrentPosition(position=> {
+      let foundData : any;
+      navigator.geolocation.getCurrentPosition(position => {
         console.info('using navigator');
         console.info(position.coords.latitude);
         console.info(position.coords.longitude);
-        let lat = position.coords.latitude;
-        let long = position.coords.longitude;
-        this.xyz.sendCoords(lat, long);
+        this.lat = position.coords.latitude;
+        this.long = position.coords.longitude;
+        this.xyz.sendCoords(this.lat, this.long)
+        .then((result) => {
+          if(result != null)
+            foundData = result;
+            this.setupAnswerPage(foundData);
+        });
       }, error => {
         console.log(error);
       }, options);
+      
+
     }
   }
+
+
 }
