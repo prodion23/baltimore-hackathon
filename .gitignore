@@ -1,3 +1,7 @@
 /node_modules
+/ParkingClient/node_modules
+/ParkingClient/park.json
+/ParkingClient/src/assets/data
+/ParkingClient/src/pages/result/
 .env
 npm-debug.log

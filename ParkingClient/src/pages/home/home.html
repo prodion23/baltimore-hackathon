@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Parking Assist
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+<button (click)="getLocation()" id="parkButton" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+  Can I Park Here?
+</button>
+
+
+<div id="mapContainer">
+<div id="map" style="height: 400px; width: 100%;"></div>
+</div>
+</ion-content>
