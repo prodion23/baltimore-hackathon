@@ -3,3 +3,5 @@
 /ParkingClient/park.json
 /ParkingClient/src/assets/data
 /ParkingClient/src/pages/result/
+.env
+npm-debug.log
