@@ -3,15 +3,16 @@ var token = process.env['OPEN_DATA_API_KEY'];
 
 var rp = require('request-promise');
 
-var ruleProcess = require('./../helpers/ruleProcessor');
+var ruleProcessor = require('./../helpers/ruleProcessor');
 var addressResolver = require('./../helpers/addressResolver');
 
 function search(req, res) {
     getAddress(req.query.lat, req.query.long).then(function (address) {
         if (address.success) {
-            console.log('find rules for ', address.data.name)
+            console.log(address);
             findRules(address.data.name).then(function (data) {
-                res.send(data);
+                findingReport = ruleProcessor.process(address.data.number, data);
+                res.send(findingReport);
             }).catch(function(error){
                 res.send(error);
             });
@@ -31,10 +32,9 @@ function findRules(street) {
         qs: {
             '$limit': 20,
             '$$app_token': token,
-            'streetname': street + ' '
+            'streetname': street + ' ' //open data has an extra space after all the streets??
         }
     };
-    console.log(options);
     return rp(options)
 }
 
@@ -50,6 +50,7 @@ function parseStreet(data) {
     data = JSON.parse(data);
     streetNumber = data.results[0].address_components[0].long_name;
     streetName = data.results[0].address_components[1].short_name;
+    streetNumber = averageBlock(streetNumber);
     streetName = removeRoadType(streetName);
     streetName = isDirectionIncluded(streetName);
     return { name: streetName, number: streetNumber };
@@ -59,6 +60,14 @@ function removeRoadType(st){
     pieces = streetName.split(' ');
     pieces.pop();
     return pieces.join(' ');
+}
+
+function averageBlock(blockArea){
+    if(blockArea.indexOf('-') > -1){
+        pieces = blockArea.split('-');
+        return pieces[0];
+    }
+    return blockArea;
 }
 
 function isDirectionIncluded(streetName){
