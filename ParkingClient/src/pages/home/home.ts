@@ -16,16 +16,31 @@ export class HomePage {
   private lat : number;
   private long : number;
   map : any;
+  canPark : boolean;
+  public restrictions: any[] ;
+  exceptions: string;
   constructor(public navCtrl: NavController, private geolocation: Geolocation, private xyz : CoordService) {
-
-
+    this.canPark = null;
+    this.exceptions = "";
+    this.restrictions = [];
   }
 
   setupAnswerPage(data : any)
   {
     console.log("Setting up Answer Page...");
     console.log(data);
-
+    if(data.unless != null)
+    {
+      this.exceptions = data.unless;
+    }
+    if(data.valid)
+    {
+      this.canPark = true;
+    }
+    else
+    {
+      this.canPark = false;
+    }
     this.displayMap();
 
   }
