@@ -91,7 +91,8 @@ function ruleCheck(data) {
             }
             break;
         case "\"Two Hour Parking, 7:00 a.m. - 12 Midnight, Monday through Friday, except with Area #3 Permit.\"":
-            if(isDayAllowed([1,2,3,4,5]) && )
+           // if(isDayAllowed([1,2,3,4,5]))
+           break;
 
     }
     return ruleString;
