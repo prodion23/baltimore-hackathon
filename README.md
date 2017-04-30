@@ -6,7 +6,7 @@ This project was made by Alex Boyd, Donnie Propst, and Jeremy Ruroede.
 
 The project consist of two parts: A client side android app, and a backend API.
 
-#Client Side Technologies:
+# Client Side Technologies:
 
 [Ionic 2][ionic]
 
@@ -15,7 +15,7 @@ The project consist of two parts: A client side android app, and a backend API.
 [Google Maps API][gmap]
 
 
-#Server side Technologies:
+# Server side Technologies:
 
 [Nodejs][node]
 
