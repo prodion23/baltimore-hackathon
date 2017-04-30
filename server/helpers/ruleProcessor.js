@@ -61,11 +61,10 @@ function ruleCheck(data) {
         case "\"Two Hour Parking, in Area #9/Monday thru Saturday 7:00 a.m. - 6:00 p.m./Sunday 7:00 a.m. - 2:00 p.m./except with Area #9/No Parking in Area #9 Monday thru Sunday morning 6pm-7am/Sunday thru Monday morning 2pm-7am/Except with Area 9 permit/Tow away Zone During Stadium Events/Tow away Zone, except with Area #9 permit.\"":
             if (isDayAllowed([1, 2, 3, 4, 5, 6]) && isTimeAllowed(7.00, 18.00)) {
                 return { valid: true, restraints: ['2 hour parking', 'Tow away during stadium events.', 'No parking 6:00PM to 7:00AM'], unless: 'Area #9 Permit' }
-            } else if (isDayAllowed([0]) && isTimeAllowed(7.00, 17.00)) {
+            } else if (isDayAllowed([0]) && isTimeAllowed(7.00, 14.00)) {
                 return { valid: true, restraints: ['2 hour parking', 'Tow away during stadium events.', 'No parking 2:00PM to 7:00AM'], unless: 'Area #9 Permit' }
             }
-            //return { valid: false, unless: 'Area #9 Permit' }
-            return { valid: true, restraints: ['2 hour parking', 'Tow away during stadium events.', 'No parking 6:00PM to 7:00AM'], unless: 'Area #9 Permit' }
+            return { valid: false, restraints: ['2 hour parking', 'Tow away during stadium events.', 'No parking 2:00PM to 7:00AM'],unless: 'Area #9 Permit' }
         case "\"No Parking 5 p.m to 10 p.m Monday - Friday , 8a.m to 10 p.m Saturday and Sunday except with Area #44 Permit\"":
             if (isDayAllowed([1, 2, 3, 4, 5]) && isTimeAllowed(8.00, 22.00)) {
                 return { valid: false, restraints: ['No parking 5:00pm to 10pm Monday - Friday'], unless: 'Area #44 permit' }
