@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { CoordService } from '../../providers/coord-service';
-import { Result } from '../result/result';
 
 declare var google;
 
