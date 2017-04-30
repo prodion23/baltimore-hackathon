@@ -8,9 +8,6 @@
 
 <ion-content padding>
 
-
-    <p style="font-size:2vh;"> <span style="font-size:3vh; font-weight:bold;">ParkIt</span>, is a android app designed to quickly answer the question: "Can I park here?" </p> <br/>
-
   <button (click)="getLocation()" id="parkButton" style="width:100%; margin:auto;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
   Can I Park Here?
 </button>
@@ -22,20 +19,20 @@
     </div>
 
 
-    <div id="map" style="height: 400px; width: 100%;"></div>
+    <div id="map" style="height: 200px; width: 100%;"></div>
     
   <div class="appContainer">
 
   <div id="rulesContainer">
 
     <div *ngIf="canPark == true">
-      <button class="mdl-button mdl-js-button greenTxt ResultBtn">
+      <button class="mdl-button mdl-js-button greenTxt CResultBtn">
       YES
      </button>
     </div>
 
     <div *ngIf="canPark == false">
-      <button class="mdl-button mdl-js-button redTxt ResultBtn">
+      <button class="mdl-button mdl-js-button redTxt CResultBtn">
       NO
       </button>
     </div>
