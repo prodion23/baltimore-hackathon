@@ -27,6 +27,8 @@ The project consist of two parts: A client side android app, and a backend API.
 
 [Request][req]
 
+[Heroku][hero]
+
 [ionic]: http://ionicframework.com/
 [apache]: https://cordova.apache.org/
 [gmap]: https://developers.google.com/maps/documentation/javascript/
@@ -37,6 +39,7 @@ The project consist of two parts: A client side android app, and a backend API.
 
 [exp]:https://expressjs.com/
 [node]:https://nodejs.org/en/
+[hero]:https://www.heroku.com
 
 
 
