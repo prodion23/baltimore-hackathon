@@ -1,4 +1,4 @@
-# Parkmore
+# ParkMore
 
 Parkmore, is an android app designed to answer the question: Can I park here?
 
