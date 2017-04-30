@@ -16,9 +16,15 @@ export class HomePage {
   private lat : number;
   private long : number;
   map : any;
+  canPark : boolean;
+  noResult : boolean;
+  public restrictions: any[] ;
+  exceptions: string;
   constructor(public navCtrl: NavController, private geolocation: Geolocation, private xyz : CoordService) {
-
-
+    this.canPark = null;
+    this.exceptions = "";
+    this.restrictions = [];
+    this.noResult = false;
   }
 
   setupAnswerPage(data : any)
@@ -26,7 +32,38 @@ export class HomePage {
     console.log("Setting up Answer Page...");
     console.log(data);
 
+    if(data.status == null || data.status == undefined)
+    { // we found a result... 
+
+
+    if(data.unless != null)
+    {
+      this.exceptions = data.unless;
+    }
+    if(data.valid)
+    {
+      this.canPark = true;
+    }
+    else
+    {
+      this.canPark = false;
+    }
+    if(data.restraints && data.restraints.length > 0)
+    {
+      for(var i = 0; i < data.restraints.length; i++)
+      {
+      this.restrictions.push(data.restraints[i])
+      }
+    }
+
+
     this.displayMap();
+
+  }
+  else
+  {
+      this.noResult = true;
+  }
 
   }
 
