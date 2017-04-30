@@ -1,6 +1,6 @@
-# ParkIt
+# Parkmore
 
-ParkIt, is an android app designed to answer the question: Can I park here?
+Parkmore, is an android app designed to answer the question: Can I park here?
 
 This project was made by Alex Boyd, Donnie Propst, and Jeremy Ruroede.
 
