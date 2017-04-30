@@ -12,6 +12,7 @@ function process(blockNumber, data) {
 function isDayAllowed(allowedDays) {
     var d = new Date();
     var today = d.getDay(); //0-6 index 0 = sunday
+    console.log(today);
     return (allowedDays.indexOf(today) > -1);
 }
 
@@ -20,6 +21,7 @@ function isDayAllowed(allowedDays) {
 function isTimeAllowed(startTime, endTime) {
     var d = new Date();
     var currentTime = d.getHours()
+    console.log(startTime, endTime, currentTime);
     currentTime = currentTime + (d.getMinutes() / 60); //minutes = 30, 30 / 60 = .5, so time is x:30
     return (endTime - currentTime >= 0 && currentTime - startTime >= 0)
 }
