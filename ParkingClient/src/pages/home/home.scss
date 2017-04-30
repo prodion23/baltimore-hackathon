@@ -1,8 +1,10 @@
 page-home {
-
+	.custom-content{
+		background: #F8F9FB;
+	}
 	.appContainer {
 		display: flex;
-		align-content: center;
+		align-content: flex-start;
 		align-items: center;
 		flex-direction: column;
 		justify-content: center;
@@ -30,5 +32,15 @@ page-home {
 
 	.redTxt {
 		color: red;
+	}
+
+	.smaller-padding{
+		padding-top: 8px;
+		padding-bottom: 2px;
+		display: flex;
+		flex-direction: row;
+		align-self: center;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
